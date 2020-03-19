@@ -19,7 +19,7 @@ function setup(){
 
 
     ground = new Ground(600,height,1200,20);
-    platform = new Ground(150, 305, 300, 170);
+    platform = new Ground(150, 330, 300, 120);
 
     box1 = new Box(700,320,70,70);
     box2 = new Box(920,320,70,70);
@@ -36,10 +36,10 @@ function setup(){
     log4 = new Log(760,120,150, PI/7);
     log5 = new Log(870,120,150, -PI/7);
 
-    bird = new Bird(100,55);
+    bird = new Bird(200,100);
 
     //log6 = new Log(230,180,80, PI/2);
-    slingshot = new SlingShot(bird.body,{x:200, y:55});
+    slingshot = new SlingShot(bird.body,{x:200, y:105});
 }
 
 function draw(){
@@ -56,7 +56,6 @@ function draw(){
     box4.display();
     pig3.display();
     log3.display();
-
     box5.display();
     log4.display();
     log5.display();
@@ -74,4 +73,9 @@ function mouseDragged(){
 
 function mouseReleased(){
     slingshot.fly();
+}
+function keyPressed(){
+    if(keyCode === 32){
+        slingshot.attach(bird.body);
+    }
 }
